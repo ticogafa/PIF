@@ -11,8 +11,8 @@ void inserirnoinicio(No **lista, int num){
     No *novo = malloc(sizeof(No));
 
     if(novo){
-        novo->valor = num;
-        novo->prox = *lista;
+        (*novo).valor = num;
+        (*novo).prox = *lista;
         *lista = novo;
     }else{
         printf("Erro de alocação de memória\n");
@@ -23,17 +23,17 @@ void inserirnofinal(No **lista, int num){
     No *novo = malloc(sizeof(No));
 
     if(novo){
-        novo->valor = num;
-        novo->prox = NULL;
+        (*novo).valor = num;
+        (*novo).prox = NULL;
 
         if(*lista == NULL){
             *lista = novo;
         }else{
             No *aux = *lista;
-            while(aux->prox != NULL){
-                aux = aux->prox;
+            while((*aux).prox != NULL){
+                aux = (*aux).prox;
             }
-            aux->prox = novo;
+            (*aux).prox = novo;
         }
     }else{
         printf("Erro de alocação de memória\n");
@@ -47,11 +47,11 @@ void inserirnomeio(No **head, int num, int ant) {
         printf("Erro de alocação de memória\n");
         return;
     }
-    new_node->valor = num;
+    (*new_node).valor = num;
 
     No *current = *head;
-    while (current != NULL && current->valor != ant) {
-        current = current->prox;
+    while (current != NULL && (*current).valor != ant) {
+        current = (*current).prox;
     }
 
     if (current == NULL) {
@@ -60,15 +60,15 @@ void inserirnomeio(No **head, int num, int ant) {
         return;
     }
 
-    new_node->prox = current->prox;
-    current->prox = new_node;
+    (*new_node).prox = (*current).prox;
+    (*current).prox = new_node;
 }
 
 void imprimir(No *no){
     printf("Lista: ");
     while(no){
-        printf("%d ", no->valor);
-        no = no->prox;
+        printf("%d ", (*no).valor);
+        no = (*no).prox;
     }
     printf("\n");
 }
