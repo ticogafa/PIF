@@ -88,7 +88,7 @@ void delete_final(No **head){
         
     }else{
         free(aux);
-        pen->next = NULL;
+        (*pen).next = NULL;
     }
 }
 
