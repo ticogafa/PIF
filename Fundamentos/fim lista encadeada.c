@@ -69,6 +69,29 @@ void freelist(No *head)
     }
 }
 
+void delete_final(No **head){
+
+    if (*head == NULL)
+    {
+        return;
+    }
+    No *pen = NULL;
+    No *aux = *head;
+
+    while((*aux).next != NULL){
+        pen = aux;
+        aux = (*aux).next;
+    }
+    if(pen == NULL){
+        free(*head);
+        *head = NULL;
+        
+    }else{
+        free(aux);
+        pen->next = NULL;
+    }
+}
+
 int main()
 {
 
@@ -77,7 +100,7 @@ int main()
 
     do
     {
-        printf("Escolha entre as opções abaixo:\n0- Sair\n1- Adicionar no início\n2- Adicionar no final\n3- Imprimir\n");
+        printf("Escolha entre as opções abaixo:\n0- Sair\n1- Adicionar no início\n2- Adicionar no final\n3- Imprimir\n4- Remover último elemento\n");
         scanf("%d", &opcao);
 
         switch (opcao)
@@ -96,6 +119,11 @@ int main()
         case 3:
             printf("Lista: ");
             imprimir(head);
+            break;
+
+        case 4: 
+            printf("Último valor removido!\n");
+            delete_final(&head);
             break;
         default:
             if (opcao != 0)
