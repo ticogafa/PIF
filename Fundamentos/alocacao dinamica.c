@@ -7,8 +7,9 @@ int main(){
     int *arr;
     int len, i;
 
-    printf("Digite o tamanho do vetor: ");
+    printf("Digite o tamanho do vetor: \n");
     scanf("%d", &len);
+
     arr = (int*)malloc(len*(sizeof(int)));
 
     for(i = 0; i<len; i++){
@@ -16,7 +17,7 @@ int main(){
     }
 
     printf("Vetor: ");
-    for(i = 0; i<len; i++){
+    for(i = 0; i< len; i++){
         printf("%d ", arr[i]);
     }
 
