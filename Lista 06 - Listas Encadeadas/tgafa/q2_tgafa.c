@@ -110,11 +110,7 @@ int main(){
     target[strcspn(target, "\n")] = '\0';
 
     if (strcmp(target, "nao") != 0){
-<<<<<<< HEAD
     insertBefore(&friendsList, newList, target);
-=======
-    insertBefore(&friendsList, newList->name, target);
->>>>>>> c1e8ee7c3931362ad6fcc47d511bc6cea0d00711
 }
     else{
     Node *current = newList;
@@ -126,10 +122,6 @@ int main(){
 
 printList(friendsList);
 
-<<<<<<< HEAD
-
-=======
->>>>>>> c1e8ee7c3931362ad6fcc47d511bc6cea0d00711
 freeList(friendsList);
 freeList(newList);
 
