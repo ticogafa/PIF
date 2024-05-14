@@ -68,9 +68,6 @@ void printList(Node *head){
     while (current != NULL){
         printf("%s ", current->name);
         current = current->next;
-        if(current == NULL){
-            printf(" ");
-    }
 }
 }
 
@@ -121,7 +118,6 @@ int main(){
 }
 
 printList(friendsList);
-printf("\n");
 
 freeList(friendsList);
 freeList(newList);
