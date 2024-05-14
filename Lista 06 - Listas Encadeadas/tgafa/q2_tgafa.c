@@ -93,7 +93,7 @@ int main(){
     fgets(input, MAX_NAME_LENGTH, stdin);
     char *token = strtok(input, " ");
     while (token != NULL){
-    char *name = strdup(token);  // Create a copy of the token
+    char *name = strdup(token); 
     insertNode(&friendsList, name);
     token = strtok(NULL, " ");
 }
@@ -101,7 +101,7 @@ int main(){
     fgets(input, MAX_NAME_LENGTH, stdin);
     token = strtok(input, " ");
     while (token != NULL){
-    char *name = strdup(token);  // Create a copy of the token
+    char *name = strdup(token);  
     insertNode(&newList, name);
     token = strtok(NULL, " ");
 }
