@@ -71,7 +71,6 @@ void printList(Node *head){
         printf("%s ", current->name);
         current = current->next;
     }
-    printf("\n");
 }
 
 void freeList(Node *head)
@@ -121,7 +120,7 @@ int main(){
 }
 
 printList(friendsList);
-
+printf("\n");
 freeList(friendsList);
 freeList(newList);
 
