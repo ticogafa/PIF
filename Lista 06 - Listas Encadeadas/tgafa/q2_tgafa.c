@@ -82,35 +82,37 @@ int main(){
     fgets(input, MAX_NAME_LENGTH, stdin);
     char *token = strtok(input, " ");
     while (token != NULL){
-        insertNode(&friendsList, token);
-        token = strtok(NULL, " ");
-    }
+    char *name = strdup(token);  // Create a copy of the token
+    insertNode(&friendsList, name);
+    token = strtok(NULL, " ");
+}
 
     fgets(input, MAX_NAME_LENGTH, stdin);
     token = strtok(input, " ");
     while (token != NULL){
-        insertNode(&newList, token);
-        token = strtok(NULL, " ");
-    }
+    char *name = strdup(token);  // Create a copy of the token
+    insertNode(&newList, name);
+    token = strtok(NULL, " ");
+}
 
     fgets(target, MAX_NAME_LENGTH, stdin);
     target[strcspn(target, "\n")] = '\0';
 
     if (strcmp(target, "nao") != 0){
-        insertBefore(&friendsList, newList->name, target);
-    }
+    insertBefore(&friendsList, newList->name, target);
+}
     else{
-        Node *current = newList;
-        while (current != NULL){
-            insertNode(&friendsList, current->name);
-            current = current->next;
-        }
+    Node *current = newList;
+    while (current != NULL){
+        insertNode(&friendsList, current->name);
+        current = current->next;
     }
+}
 
-    printList(friendsList);
+printList(friendsList);
 
-    freeList(friendsList);
-    freeList(newList);
+freeList(friendsList);
+freeList(newList);
 
     return 0;
 }
