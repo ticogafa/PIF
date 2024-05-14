@@ -4,61 +4,49 @@
 
 #define MAX_NAME_LENGTH 50
 
-typedef struct Node
-{
+typedef struct Node{
     char name[MAX_NAME_LENGTH];
     struct Node *next;
 } Node;
 
-Node *createNode(char *name)
-{
+Node *createNode(char *name){
     Node *newNode = (Node *)malloc(sizeof(Node));
     strcpy(newNode->name, name);
     newNode->next = NULL;
     return newNode;
 }
 
-void insertNode(Node **head, char *name)
-{
+void insertNode(Node **head, char *name){
     Node *newNode = createNode(name);
-    if (*head == NULL)
-    {
+    if (*head == NULL){
         *head = newNode;
     }
-    else
-    {
+    else{
         Node *current = *head;
-        while (current->next != NULL)
-        {
+        while (current->next != NULL){
             current = current->next;
         }
         current->next = newNode;
     }
 }
 
-void insertBefore(Node **head, char *name, char *target)
-{
+void insertBefore(Node **head, char *name, char *target){
     Node *newNode = createNode(name);
-    if (*head == NULL)
-    {
+    if (*head == NULL){
         *head = newNode;
     }
-    else
-    {
+    else{
         Node *current = *head;
         Node *prev = NULL;
-        while (current != NULL && strcmp(current->name, target) != 0)
-        {
+        while (current != NULL && strcmp(current->name, target) != 0){
             prev = current;
             current = current->next;
         }
-        if (prev == NULL)
-        {
+        if (prev == NULL){
             newNode->next = *head;
             *head = newNode;
         }
-        else
-        {
+        else{
             prev->next = newNode;
             newNode->next = current;
         }
@@ -68,8 +56,7 @@ void insertBefore(Node **head, char *name, char *target)
 void printList(Node *head)
 {
     Node *current = head;
-    while (current != NULL)
-    {
+    while (current != NULL){
         printf("%s ", current->name);
         current = current->next;
     }
@@ -79,16 +66,14 @@ void printList(Node *head)
 void freeList(Node *head)
 {
     Node *current = head;
-    while (current != NULL)
-    {
+    while (current != NULL){
         Node *temp = current;
         current = current->next;
         free(temp);
     }
 }
 
-int main()
-{
+int main(){
     Node *friendsList = NULL;
     Node *newList = NULL;
     char input[MAX_NAME_LENGTH];
@@ -96,16 +81,14 @@ int main()
 
     fgets(input, MAX_NAME_LENGTH, stdin);
     char *token = strtok(input, " ");
-    while (token != NULL)
-    {
+    while (token != NULL){
         insertNode(&friendsList, token);
         token = strtok(NULL, " ");
     }
 
     fgets(input, MAX_NAME_LENGTH, stdin);
     token = strtok(input, " ");
-    while (token != NULL)
-    {
+    while (token != NULL){
         insertNode(&newList, token);
         token = strtok(NULL, " ");
     }
@@ -113,15 +96,12 @@ int main()
     fgets(target, MAX_NAME_LENGTH, stdin);
     target[strcspn(target, "\n")] = '\0';
 
-    if (strcmp(target, "nao") != 0)
-    {
+    if (strcmp(target, "nao") != 0){
         insertBefore(&friendsList, newList->name, target);
     }
-    else
-    {
+    else{
         Node *current = newList;
-        while (current != NULL)
-        {
+        while (current != NULL){
             insertNode(&friendsList, current->name);
             current = current->next;
         }
