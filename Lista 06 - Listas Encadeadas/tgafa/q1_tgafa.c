@@ -2,17 +2,21 @@
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct no{
+typedef struct no
+{
     char status;
     char nome[50];
     struct no *prox;
-}No;
+} No;
 
-int contagem(No *head, char status){
+int contagem(No *head, char status)
+{
     No *aux = head;
     int cont = 0;
-    while(aux != NULL){
-        if(aux->status == status){
+    while (aux != NULL)
+    {
+        if (aux->status == status)
+        {
             cont++;
         }
         aux = aux->prox;
@@ -20,7 +24,8 @@ int contagem(No *head, char status){
     return cont;
 }
 
-void sort(No **head) {
+void sort(No **head)
+{
     No *start = *head;
     No *ptr;
     No *tmp = NULL;
@@ -29,21 +34,22 @@ void sort(No **head) {
     if (start == NULL)
         return;
 
-    do {
+    do
+    {
         swapped = 0;
         ptr = start;
 
-        while (ptr->prox != tmp) {
-            if (strcmp(ptr->nome, ptr->prox->nome) > 0) { 
+        while (ptr->prox != tmp)
+        {
+            if (strcmp(ptr->nome, ptr->prox->nome) > 0)
+            {
                 char temp_nome[50];
                 strcpy(temp_nome, ptr->nome);
 
-                
                 strcpy(ptr->nome, ptr->prox->nome);
 
-                
                 strcpy(ptr->prox->nome, temp_nome);
- 
+
                 swapped = 1;
             }
             ptr = ptr->prox;
@@ -63,32 +69,34 @@ void freelist(No *head)
     }
 }
 
-int main(){
+int main()
+{
 
-    No **head = (No**)malloc(sizeof(No*));
-    *head = NULL;  
+    No **head = (No **)malloc(sizeof(No *));
+    *head = NULL;
     char status, nome[50];
     int n;
     scanf("%d", &n);
-    getchar();  
+    getchar();
 
-    for(int i = 0; i<n; i++){
+    for (int i = 0; i < n; i++)
+    {
         scanf("%c", &status);
-        getchar();  
-        fgets(nome, 50, stdin);  
-        nome[strcspn(nome, "\n")] = 0;  
-        No *novo = (No*)malloc(sizeof(No));
+        getchar();
+        fgets(nome, 50, stdin);
+        nome[strcspn(nome, "\n")] = 0;
+        No *novo = (No *)malloc(sizeof(No));
         novo->status = status;
-        strcpy(novo->nome, nome);  
+        strcpy(novo->nome, nome);
         novo->prox = *head;
         *head = novo;
-         
     }
 
     sort(head);
 
     No *aux = *head;
-    while(aux != NULL){
+    while (aux != NULL)
+    {
         printf("%s\n", aux->nome);
         aux = aux->prox;
     }
