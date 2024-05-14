@@ -2,22 +2,20 @@
 #include <stdlib.h>
 #include <string.h>
 
-#define MAX_NAME_LENGTH 50
-
 typedef struct Node{
-    char name[MAX_NAME_LENGTH];
+    char name[50];
     struct Node *next;
 } Node;
 
-Node *createNode(char *name){
+Node *criarnome(char *name){
     Node *newNode = (Node *)malloc(sizeof(Node));
     strcpy(newNode->name, name);
     newNode->next = NULL;
     return newNode;
 }
 
-void insertNode(Node **head, char *name){
-    Node *newNode = createNode(name);
+void inserir(Node **head, char *name){
+    Node *newNode = criarnome(name);
     if (*head == NULL){
         *head = newNode;
     }
@@ -30,7 +28,7 @@ void insertNode(Node **head, char *name){
     }
 }
 
-void insertBefore(Node **head, Node *newList, char *target){
+void inserirAntes(Node **head, Node *newList, char *target){
     if (*head == NULL || newList == NULL){
         return;
     }
@@ -89,35 +87,35 @@ void freeList(Node *head)
 int main(){
     Node *friendsList = NULL;
     Node *newList = NULL;
-    char input[MAX_NAME_LENGTH];
-    char target[MAX_NAME_LENGTH];
+    char input[50];
+    char target[50];
 
-    fgets(input, MAX_NAME_LENGTH, stdin);
+    fgets(input, 50, stdin);
     char *token = strtok(input, " ");
     while (token != NULL){
     char *name = strdup(token); 
-    insertNode(&friendsList, name);
+    inserir(&friendsList, name);
     token = strtok(NULL, " ");
 }
 
-    fgets(input, MAX_NAME_LENGTH, stdin);
+    fgets(input, 50, stdin);
     token = strtok(input, " ");
     while (token != NULL){
     char *name = strdup(token);  
-    insertNode(&newList, name);
+    inserir(&newList, name);
     token = strtok(NULL, " ");
 }
 
-    fgets(target, MAX_NAME_LENGTH, stdin);
+    fgets(target, 50, stdin);
     target[strcspn(target, "\n")] = '\0';
 
     if (strcmp(target, "nao") != 0){
-    insertBefore(&friendsList, newList, target);
+    inserirAntes(&friendsList, newList, target);
 }
     else{
     Node *current = newList;
     while (current != NULL){
-        insertNode(&friendsList, current->name);
+        inserir(&friendsList, current->name);
         current = current->next;
     }
 }
