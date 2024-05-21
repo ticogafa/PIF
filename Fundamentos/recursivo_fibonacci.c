@@ -5,15 +5,23 @@ int fibonacci(int n){
         return 0;
     }else if(n == 1){
         return 1;
-    }else{
+
+    }
+    else{
         return fibonacci(n - 1) + fibonacci(n - 2);
     }
 }
 
 int main(){
     int n;
-    printf("Digite um numero inteiro: ");
+    printf("\nDigite um numero inteiro: ");
     scanf("%d", &n);
-    printf("O %d-esimo termo da sequencia de Fibonacci e %d\n", n, fibonacci(n));
+    if(n < 0){
+        printf("O numero deve ser maior ou igual a 0\n");
+        return 1;
+    }else{
+        printf("O %d-esimo termo da sequencia de Fibonacci e: %d\n", n, fibonacci(n));
     return 0;
 }
+    }
+    
