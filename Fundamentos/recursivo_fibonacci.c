@@ -23,5 +23,4 @@ int main(){
         printf("O %d-esimo termo da sequencia de Fibonacci e: %d\n", n, fibonacci(n));
     return 0;
 }
-    }
-    
+}    
