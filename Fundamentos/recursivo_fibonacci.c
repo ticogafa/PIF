@@ -20,7 +20,10 @@ int main(){
         printf("O numero deve ser maior ou igual a 0\n");
         return 1;
     }else{
-        printf("O %d-esimo termo da sequencia de Fibonacci e: %d\n", n, fibonacci(n));
+        for(int i = 0; i <= n; i++){
+            printf("%d | ", fibonacci(i));
+        }
+        printf("\nO %d-esimo termo da sequencia de Fibonacci e: %d\n", n, fibonacci(n));
     return 0;
 }
 }    
