@@ -18,4 +18,3 @@ int main(){
     printf("%d", fatorial(numero));
     return 0;
 }
-
