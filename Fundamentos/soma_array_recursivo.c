@@ -20,9 +20,12 @@ int print_array(int * arr, int n, int forward){
         }else{
             printf("%d |", arr[n-1]);
             print_array(arr, n - 1, forward);
+                
+            }
         }
+        return 0;
     }
-}
+
 
 int main(){
 
