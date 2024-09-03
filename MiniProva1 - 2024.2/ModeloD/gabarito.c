@@ -7,7 +7,6 @@ int main() {
 
     int matriz[N][N];
 
-    // Preenchendo a matriz com valores fornecidos pelo usuário
     printf("Digite os elementos da matriz:\n");
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < N; j++) {
@@ -18,7 +17,6 @@ int main() {
     int triangularSuperior = 1;
     int triangularInferior = 1;
 
-    // Verificando se é triangular superior
     for (int i = 0; i < N; i++) {
         for (int j = 0; j < i; j++) {
             if (matriz[i][j] != 0) {
@@ -28,7 +26,6 @@ int main() {
         }
     }
 
-    // Verificando se é triangular inferior
     for (int i = 0; i < N; i++) {
         for (int j = i + 1; j < N; j++) {
             if (matriz[i][j] != 0) {
