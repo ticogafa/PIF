@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <string.h>
-
+ 
 struct feira{
 
   char nome[51];
