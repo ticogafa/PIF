@@ -4,7 +4,7 @@
 
 int main(){
 
-    int *arr;
+    int *arr; 
     int len, i;
 
     printf("Digite o tamanho do vetor: \n");
