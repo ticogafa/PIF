@@ -14,12 +14,11 @@ int main() {
     int N;
     
     while (1) {
-        // a) Receber do usuário o número de jogadores N
         scanf("%d", &N);
         if (N == -1) break;
 
         // b) Criar arrays para armazenar os sobrenomes das duas equipes
-        char sub18[N][101], sub21[N][101];
+        char sub18[N][500], sub21[N][500];
         
         // c) Preencher os arrays com os sobrenomes fornecidos pelo usuário
         for (int i = 0; i < N; i++) {
