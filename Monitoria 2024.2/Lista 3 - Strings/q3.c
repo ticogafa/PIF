@@ -17,7 +17,7 @@ int main() {
         scanf("%d", &N);
         if (N == -1) break;
 
-        char sub18[N][500], sub21[N][500];
+        char sub18[N][101], sub21[N][101];
         
         for (int i = 0; i < N; i++) {
             scanf("%s", sub18[i]);
