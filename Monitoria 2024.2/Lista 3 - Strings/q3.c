@@ -17,10 +17,8 @@ int main() {
         scanf("%d", &N);
         if (N == -1) break;
 
-        // b) Criar arrays para armazenar os sobrenomes das duas equipes
         char sub18[N][500], sub21[N][500];
         
-        // c) Preencher os arrays com os sobrenomes fornecidos pelo usuário
         for (int i = 0; i < N; i++) {
             scanf("%s", sub18[i]);
         }
@@ -28,7 +26,6 @@ int main() {
             scanf("%s", sub21[i]);
         }
 
-        // d) Calcular o número máximo de letras que podem ser impressas nas camisetas
         int max_letras = 0;
         for (int i = 0; i < N; i++) {
             int max_prefixo = 0;
@@ -41,7 +38,6 @@ int main() {
             max_letras += max_prefixo;
         }
 
-        // e) Imprimir o resultado
         printf("%d\n", max_letras);
     }
 
