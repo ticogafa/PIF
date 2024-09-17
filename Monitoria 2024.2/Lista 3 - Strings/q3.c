@@ -14,12 +14,12 @@ Node node_pool[MAX_NODES];
 int node_count = 0;
 
 Node* iniciar() {
-    Node* no = &node_pool[node_count++];
-    no->contagem = 0;
+    Node* Node = &node_pool[node_count++];
+    Node->contagem = 0;
     for (int i = 0; i < ALFABETO; i++) {
-        no->filhos[i] = NULL;
+        Node->filhos[i] = NULL;
     }
-    return no;
+    return Node;
 }
 
 void adicionar_palavra(Node* raiz, char* palavra) {
@@ -34,16 +34,12 @@ void adicionar_palavra(Node* raiz, char* palavra) {
     }
 }
 
-void contar_prefixos(Node* no1, Node* no2, int* resposta) {
-    if (!no1 || !no2) return;
-    *resposta += (no1->contagem < no2->contagem) ? no1->contagem : no2->contagem;
+void contar_prefixos(Node* Node1, Node* Node2, int* resposta) {
+    if (!Node1 || !Node2) return;
+    *resposta += (Node1->contagem < Node2->contagem) ? Node1->contagem : Node2->contagem;
     for (int i = 0; i < ALFABETO; i++) {
-        contar_prefixos(no1->filhos[i], no2->filhos[i], resposta);
+        contar_prefixos(Node1->filhos[i], Node2->filhos[i], resposta);
     }
-}
-
-void liberar(Node* no) {
-    // Não é mais necessário liberar nós individualmente
 }
 
 void resolver(int total_palavras) {
@@ -66,7 +62,6 @@ void resolver(int total_palavras) {
     contar_prefixos(raiz1, raiz2, &resposta);
     printf("%d\n", resposta);
 
-    // Não é mais necessário liberar nós individualmente
 }
 
 int main() {
