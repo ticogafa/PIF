@@ -5,7 +5,7 @@
 typedef struct Node{
     char name[50];
     struct Node *next;
-} Node;
+} Node; 
  
 Node *criarnome(char *name){
     Node *newNode = (Node *)malloc(sizeof(Node));
