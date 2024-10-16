@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//2542 - Iu-Di-Oh!
 int main(void) {
     int N, M, L, CM, CL, A;
 

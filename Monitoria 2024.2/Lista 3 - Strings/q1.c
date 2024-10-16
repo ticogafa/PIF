@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
+//1254 - Substituição de tag
 int toUpper(char c) {
     if (c >= 'a' && c <= 'z') {
         return c - 32;

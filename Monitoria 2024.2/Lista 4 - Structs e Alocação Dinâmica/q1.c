@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
+//1039 - Flores de fogo
 struct circ {
     int x, y;
     int raio;

@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <math.h>
 
+//3162 - Comunicação espacial
 struct nave {
     int x, y, z;
 };

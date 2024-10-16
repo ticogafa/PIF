@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+//2035 - Projetando camisas
 #define ALFABETO 26 
 #define MAX_NODES 1000000
 

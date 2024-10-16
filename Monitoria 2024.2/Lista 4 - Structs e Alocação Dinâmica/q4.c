@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//1267 - Biblioteca de Pascal
 int main(void) {
     int N, D;
 
