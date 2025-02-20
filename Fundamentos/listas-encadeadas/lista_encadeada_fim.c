@@ -7,6 +7,7 @@ typedef struct no
     struct no *next;
 } No;
 
+// Função para adicionar um elemento no início da lista
 void inicio(No **head, int valor)
 {
     No *new = malloc(sizeof(No));
@@ -19,10 +20,11 @@ void inicio(No **head, int valor)
     }
     else
     {
-        printf("error");
+        printf("erro");
     }
 }
 
+// Função para adicionar um elemento no final da lista
 void final(No **head, int valor)
 {
     No *new = malloc(sizeof(No));
@@ -43,11 +45,12 @@ void final(No **head, int valor)
         }
 
     }else{
-        printf("error");
+        printf("erro");
     }
     
 }
 
+// Função para imprimir a lista
 void imprimir(No *head)
 {
     printf("Lista: ");
@@ -58,6 +61,7 @@ void imprimir(No *head)
     printf("\n");
 }
 
+// Função para liberar a memória da lista
 void freelist(No *head)
 {
     No *tmp;
@@ -69,6 +73,7 @@ void freelist(No *head)
     }
 }
 
+// Função para remover o último elemento da lista
 void delete_final(No **head){
 
     if (*head == NULL)

@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+// Função recursiva para calcular o n-ésimo termo da sequência de Fibonacci
 int fibonacci(int n){
     if(n == 0){
         return 0;
@@ -19,6 +20,7 @@ int main(){
         printf("O numero deve ser maior ou igual a 0\n");
         return 1;
     }else{
+        // Imprime a sequência de Fibonacci até o n-ésimo termo
         for(int i = 0; i <= n; i++){
             printf("%d | ", fibonacci(i));
         }

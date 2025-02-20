@@ -2,11 +2,13 @@
 #include <string.h>
 #include <stdlib.h>
 
+// Definição da estrutura do nó
 typedef struct no {
     int valor;
     struct no *prox;
 } No;
 
+// Função para inserir um nó no início da lista
 void inserirnoinicio(No **lista, int num){
     No *novo = malloc(sizeof(No));
 
@@ -19,6 +21,7 @@ void inserirnoinicio(No **lista, int num){
     }
 }
 
+// Função para inserir um nó no final da lista
 void inserirnofinal(No **lista, int num){
     No *novo = malloc(sizeof(No));
 
@@ -38,9 +41,9 @@ void inserirnofinal(No **lista, int num){
     }else{
         printf("Erro de alocação de memória\n");
     }
-
 }
 
+// Função para inserir um nó no meio da lista
 void inserirnomeio(No **head, int num, int ant) {
     No *new_node = (No*) malloc(sizeof(No));
     if (new_node == NULL) {
@@ -64,6 +67,7 @@ void inserirnomeio(No **head, int num, int ant) {
     (*current).prox = new_node;
 }
 
+// Função para imprimir a lista
 void imprimir(No *no){
     printf("Lista: ");
     while(no){
@@ -73,9 +77,7 @@ void imprimir(No *no){
     printf("\n");
 }
 
-
 int main(){
-
     int opcao, num, ant;
     No *lista = NULL;
 
@@ -109,7 +111,6 @@ int main(){
                 if(opcao!=0){
                     printf("Opção inválida\n");
                 }
-                
         }
     }while(opcao!=0);
 
