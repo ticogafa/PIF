@@ -1,3 +1,9 @@
+//(STRINGS - 1.5 pontos) Implemente uma função de compressão de strings  baseado na contagem de repetições de caracteres consecutivos. 
+//Por exemplo, a string "AAAABBBCCDAA" seria comprimida para "A4B3C2D1A2". Sua função deve receber dois ponteiros para char como parâmetro 
+//representando as duas strings, a primeira é a string original e a segunda é a nova string comprimida, e deve ter tipo de retorno void. 
+//Considere casos especiais como strings vazias ou com apenas um caractere.
+
+
 #include <stdio.h>
 #include <string.h>
 
