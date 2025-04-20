@@ -24,7 +24,7 @@
     } CharInfo;
 
     // Função de comparação para ordenação dos caracteres
-    int compare(const void *a, const void *b) {
+    int comparar(const void *a, const void *b) {
         // Converte os ponteiros void para ponteiros CharInfo
         CharInfo *charA = (CharInfo *)a;
         CharInfo *charB = (CharInfo *)b;
@@ -79,7 +79,7 @@
             }
             
             // Ordena os caracteres usando a função de comparação definida
-            qsort(charInfo, uniqueChars, sizeof(CharInfo), compare);       
+            qsort(charInfo, uniqueChars, sizeof(CharInfo), comparar);       
             
             // Imprime os resultados no formato: ASCII frequência
             for (int i = 0; i < uniqueChars; i++) {
